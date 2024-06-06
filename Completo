@@ -1,0 +1,69 @@
+nome = input('Digite o nome de um carro: ')
+preco_do_carro = float(input('Digite a faixa de preço que você pode pagar: '))
+
+print(f'O usuário gostaria de saber se o carro {nome} está disponível e gostaria de pagar {preco_do_carro} reais nesse carro.')
+
+lista_carros = [
+    'Panamera', 'Mustang', 'M3', 'G63', 'Ferrari Roma', 
+    '911', 'McLaren P1', 'McLaren Senna', 'Aventador', 'Urus',
+    'MC20', 'M2', 'Velar', 'Audi R8', 'X6',
+    'Ferrari SF90', 'Ferrari 812 GTS', 'X7', 'R35', 'SW4'
+]
+
+carro_encontrado = True
+for carro in lista_carros:
+    if carro.lower() == nome:
+        print('Carro encontrado')
+        break
+else:
+    carro_encontrado = False
+    print('Carro não encontrado')
+
+
+if preco_do_carro < 10000:
+    qualidade_do_carro = '"Mal Estado"'
+elif preco_do_carro < 30000:
+    qualidade_do_carro = '"Conservado"'
+elif preco_do_carro < 60000:
+    qualidade_do_carro = '"Seminovo"'
+else:
+    qualidade_do_carro = '"Novo"'
+
+print(qualidade_do_carro)
+
+print(f'O usuário gostaria de um carro {nome} na qualidade de {qualidade_do_carro}.')
+
+while True:
+    nome_carro = input('Digite o nome do carro que você deseja comprar: ').lower()
+    preco_carro = float(input('Digite o valor que você gostaria de pagar pelo carro: '))
+    
+    print(f'O usuário gostaria de saber se o carro {nome_carro} está disponível e gostaria de pagar {preco_carro} reais nesse carro.')
+
+    def procurar_carro(nome_carro):
+        for carro in lista_carros:
+            if carro.lower() == nome_carro:
+                return 'Carro encontrado'
+        return 'Carro não encontrado'
+
+    procurar_carro2 = procurar_carro(nome)
+    print(procurar_carro2)
+    
+    def avaliacao_carro(preco):
+        if preco < 10000:
+            return 'Mal estado'
+        elif preco < 30000:
+            return 'Conservado'
+        elif preco < 60000:
+            return 'Seminovo'
+        else:
+            return 'Novo'
+    
+    avaliacao_carro2 = avaliacao_carro(preco_carro)
+    print(avaliacao_carro2)
+
+    if procurar_carro2 == 'Carro encontrado':
+        print(f'O usuário gostaria de um carro {nome_carro} na qualidade de {avaliacao_carro2}.')
+    
+    continuar = input('Deseja continuar? (sim/não): ').lower()
+    if continuar != 'sim':
+        break
