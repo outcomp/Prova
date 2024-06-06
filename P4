@@ -1,0 +1,39 @@
+lista_carros = [
+    'Panamera', 'Mustang', 'M3', 'G63', 'Ferrari Roma', 
+    '911', 'McLaren P1', 'McLaren Senna', 'Aventador', 'Urus',
+    'MC20', 'M2', 'Velar', 'Audi R8', 'X6',
+    'Ferrari SF90', 'Ferrari 812 GTS', 'X7', 'R35', 'SW4'
+]
+
+while True:
+    nome_carro = input('Digite o nome do carro que você deseja comprar: ').lower()
+    preco_carro = float(input('Digite o valor que você gostaria de pagar pelo carro: '))
+    
+    def procurar_carro(nome_carro):
+        for carro in lista_carros:
+            if carro.lower() == nome_carro:
+                return 'Carro encontrado'
+        return 'Carro não encontrado'
+
+    procurar_carro2 = procurar_carro(nome_carro)
+    print(procurar_carro2)
+
+    def avaliacao_carro(preco):
+        if preco < 10000:
+            return 'Mal estado'
+        elif preco < 30000:
+            return 'Conservado'
+        elif preco < 60000:
+            return 'Seminovo'
+        else:
+            return 'Novo'
+    
+    avaliacao_carro2 = avaliacao_carro(preco_carro)
+    print(avaliacao_carro2)
+
+    if procurar_carro2 == 'Carro encontrado':
+        print(f'O usuário gostaria de um carro {nome_carro} na qualidade de {avaliacao_carro2}.')
+
+    continuar = input('Deseja continuar? (sim/não): ').lower()
+    if continuar != 'sim':
+        break
