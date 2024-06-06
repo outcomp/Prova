@@ -1,0 +1,31 @@
+nome = input('Digite o nome de um carro: ')
+preco_do_carro = float(input('Digite a faixa de preço que você pode pagar: '))
+
+print(f'O usuário gostaria de saber se o carro {nome} está disponível e gostaria de pagar {preco_do_carro} reais nesse carro.')
+
+lista_carros = [
+    'Panamera', 'Mustang', 'M3', 'G63', 'Ferrari Roma', 
+    '911', 'McLaren P1', 'McLaren Senna', 'Aventador', 'Urus',
+    'MC20', 'M2', 'Velar', 'Audi R8', 'X6',
+    'Ferrari SF90', 'Ferrari 812 GTS', 'X7', 'R35', 'SW4'
+]
+
+carro_encontrado = True
+for carro in lista_carros:
+    if carro.lower() == nome:
+        print('Carro encontrado')
+        break
+else:
+    carro_encontrado = False
+    print('Carro não encontrado')
+
+if preco_do_carro < 10000:
+    qualidade_do_carro = 'Mal estado'
+elif preco_do_carro < 30000:
+    qualidade_do_carro = 'Conservado'
+elif preco_do_carro < 60000:
+    qualidade_do_carro = 'Seminovo'
+else:
+    qualidade_do_carro = 'Novo'
+
+print(qualidade_do_carro)
